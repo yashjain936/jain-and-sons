@@ -1,592 +1,818 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Serif+Devanagari:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --gold: #C9A84C;
-    --gold-light: #F0D98A;
-    --dark: #1A1208;
-    --dark2: #2C1F08;
-    --cream: #FDF6E3;
-    --cream2: #F5EDD0;
-    --text: #3A2A0A;
-    --muted: #7A6640;
-    --accent: #8B1A1A;
-    --white: #FFFDF7;
-    --green: #1a6b3c;
-    --whatsapp: #25D366;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  /* FLOATING BUTTONS */
-  .float-bar {
-    position: fixed; bottom: 24px; right: 20px; z-index: 999;
-    display: flex; flex-direction: column; gap: 12px; align-items: flex-end;
-  }
-  .float-btn {
-    display: flex; align-items: center; gap: 10px;
-    padding: 12px 20px; border-radius: 50px;
-    font-size: 14px; font-weight: 700; text-decoration: none;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .float-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.3); }
-  .float-wa { background: #25D366; color: #fff; }
-  .float-call { background: var(--gold); color: var(--dark); }
-  .float-icon { font-size: 18px; }
+  <!-- ═══════════════════════════════════════════
+       PRIMARY SEO TAGS
+  ════════════════════════════════════════════ -->
+  <title>Jain & Sons | Stamp Paper, Affidavit, Property Registry – Diwani Kachehri, Agra</title>
+  <meta name="description" content="Agra's most trusted legal documentation centre since 1989. Stamp papers, affidavits, property registry, sale deed, LIC bond, Tehsil certificates & Torrent Power services at Diwani Gate No. 3, Agra. Call +91 74670 05157." />
+  <meta name="keywords" content="stamp paper Agra, affidavit Agra, property registry Agra, sale deed Agra, Diwani Kachehri Agra, legal documentation Agra, tehsil work Agra, LIC bond Agra, income certificate Agra, caste certificate Agra, domicile certificate Agra, mutation Agra, e-challan Agra, Torrent Power connection Agra, जैन एंड सन्स आगरा" />
+  <meta name="author" content="Jain & Sons, Agra" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yashjain936.github.io/jain-and-sons/" />
 
-  /* NAV */
-  nav {
-    background: var(--dark);
-    padding: 14px 40px;
-    display: flex; align-items: center; justify-content: space-between;
-    position: sticky; top: 0; z-index: 100;
-    border-bottom: 2px solid var(--gold);
-  }
-  .nav-logo { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 22px; letter-spacing: 1px; }
-  .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a { color: var(--cream2); text-decoration: none; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-phone { color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: 1px; }
+  <!-- ═══════════════════════════════════════════
+       OPEN GRAPH (WhatsApp / Facebook previews)
+  ════════════════════════════════════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Jain & Sons – Legal Documentation, Agra | Since 1989" />
+  <meta property="og:description" content="Stamp papers, affidavits, property registry, LIC, Tehsil & more. 35+ years of trust at Diwani Gate No. 3, Agra. Call +91 74670 05157." />
+  <meta property="og:url" content="https://yashjain936.github.io/jain-and-sons/" />
+  <meta property="og:site_name" content="Jain & Sons" />
+  <meta property="og:locale" content="en_IN" />
 
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 60%, #3A2000 100%);
-    min-height: 90vh;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center; padding: 60px 30px;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,168,76,0.03) 40px, rgba(201,168,76,0.03) 80px);
-  }
-  .hero-badge {
-    display: inline-block;
-    border: 1px solid var(--gold);
-    color: var(--gold-light);
-    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-    padding: 6px 20px; border-radius: 2px; margin-bottom: 28px;
-    background: rgba(201,168,76,0.08);
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(42px, 7vw, 80px);
-    color: var(--white);
-    line-height: 1.1; margin-bottom: 10px;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
-  }
-  .hero h1 span { color: var(--gold); }
-  .hero-hindi {
-    font-family: 'Noto Serif Devanagari', serif;
-    color: var(--gold-light); font-size: 20px; margin-bottom: 20px; opacity: 0.85;
-  }
-  .hero-divider {
-    width: 80px; height: 2px;
-    background: linear-gradient(to right, transparent, var(--gold), transparent);
-    margin: 20px auto 28px;
-  }
-  .hero-tagline {
-    color: var(--cream2); font-size: 17px; font-weight: 300;
-    max-width: 600px; margin: 0 auto 36px; letter-spacing: 0.3px;
-  }
-  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
-  .hero-cta {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 36px; font-weight: 700; font-size: 14px;
-    letter-spacing: 2px; text-transform: uppercase;
-    border-radius: 2px; text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-    cursor: pointer; border: none;
-  }
-  .hero-cta-gold { background: var(--gold); color: var(--dark); }
-  .hero-cta-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
-  .hero-cta-wa { background: #25D366; color: #fff; }
-  .hero-cta-wa:hover { background: #1ebe5d; transform: translateY(-2px); }
+  <!-- ═══════════════════════════════════════════
+       TWITTER CARD
+  ════════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Jain & Sons – Legal Documentation, Agra" />
+  <meta name="twitter:description" content="Stamp papers, affidavits, property registry, Tehsil & LIC work. Trusted since 1989 at Diwani Kachehri, Agra." />
 
-  /* STATS STRIP */
-  .stats-strip {
-    background: var(--accent);
-    padding: 22px 40px;
-    display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;
+  <!-- ═══════════════════════════════════════════
+       STRUCTURED DATA — LOCAL BUSINESS (Schema.org)
+       Helps Google show your business in Maps & local search
+  ════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Jain & Sons",
+    "alternateName": "जैन एंड सन्स",
+    "description": "Legal documentation centre for stamp papers, affidavits, property registry, sale deed, LIC bonds, Tehsil certificates, and Torrent Power services in Agra.",
+    "url": "https://yashjain936.github.io/jain-and-sons/",
+    "telephone": "+917467005157",
+    "foundingDate": "1989",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Shop No. 3, In Front of Diwani Gate No. 3, Diwani Kachehri",
+      "addressLocality": "Agra",
+      "addressRegion": "Uttar Pradesh",
+      "postalCode": "282004",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "27.1767",
+      "longitude": "78.0081"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "sameAs": [
+      "https://wa.me/917467005157"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Legal Documentation Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stamp Papers" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Affidavits" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Property Registry" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sale Deed" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "LIC Bond" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Income Certificate" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Caste Certificate" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Domicile Certificate" } }
+      ]
+    }
   }
-  .stat { text-align: center; }
-  .stat-number { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold-light); font-weight: 700; line-height: 1; }
-  .stat-label { color: rgba(255,255,255,0.8); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+  </script>
 
-  /* CONTACT STRIP */
-  .contact-strip {
-    background: var(--cream2);
-    border-bottom: 1px solid rgba(201,168,76,0.3);
-    padding: 18px 40px;
-    display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;
-  }
-  .contact-item { display: flex; align-items: center; gap: 10px; }
-  .contact-item span { font-size: 20px; }
-  .contact-item a { color: var(--dark); font-weight: 700; font-size: 15px; text-decoration: none; }
-  .contact-item a:hover { color: var(--accent); }
-  .contact-item small { display: block; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* SECTION */
-  section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
-  .section-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 42px); color: var(--dark); margin-bottom: 16px; }
-  .section-line { width: 50px; height: 3px; background: var(--gold); margin-bottom: 40px; }
+    :root {
+      --maroon: #8B1A1A;
+      --maroon-dark: #6B1212;
+      --gold: #C9A84C;
+      --gold-light: #F0D080;
+      --cream: #FBF7F0;
+      --white: #FFFFFF;
+      --text: #1A1A1A;
+      --text-light: #555555;
+      --border: #E8E0D0;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --radius: 10px;
+    }
 
-  /* CATEGORY HEADING */
-  .cat-heading {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px; color: var(--dark);
-    border-left: 4px solid var(--gold);
-    padding-left: 14px; margin: 44px 0 20px;
-  }
+    html { scroll-behavior: smooth; }
 
-  /* SERVICES */
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; }
-  .service-card {
-    background: var(--white);
-    border: 1px solid rgba(201,168,76,0.25);
-    border-top: 3px solid var(--gold);
-    padding: 24px 20px; border-radius: 2px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(201,168,76,0.15); }
-  .service-card.red-top { border-top-color: var(--accent); }
-  .service-card.green-top { border-top-color: #1a6b3c; }
-  .service-card.blue-top { border-top-color: #1a3f8b; }
-  .service-icon { font-size: 26px; margin-bottom: 12px; display: block; }
-  .service-card h3 { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--dark); margin-bottom: 7px; }
-  .service-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-  /* WHY US */
-  .why-wrapper { background: var(--dark); padding: 80px 40px; }
-  .why-inner { max-width: 1100px; margin: 0 auto; }
-  .why-inner .section-title { color: var(--white); }
-  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px; }
-  .why-item { text-align: center; }
-  .why-icon-wrap {
-    width: 60px; height: 60px; border-radius: 50%;
-    background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4);
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 16px; font-size: 22px;
-  }
-  .why-item h4 { color: var(--gold-light); font-family: 'Playfair Display', serif; font-size: 17px; margin-bottom: 8px; }
-  .why-item p { color: rgba(255,255,255,0.6); font-size: 13px; }
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--maroon-dark);
+      color: var(--gold-light);
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .topbar a { color: var(--gold-light); text-decoration: none; font-weight: 600; }
+    .topbar a:hover { color: var(--white); }
 
-  /* TESTIMONIAL */
-  .testimonial-wrap { background: var(--cream2); padding: 70px 40px; text-align: center; border-top: 1px solid rgba(201,168,76,0.2); border-bottom: 1px solid rgba(201,168,76,0.2); }
-  .testimonial-inner { max-width: 700px; margin: 0 auto; }
-  .quote-mark { font-size: 80px; color: var(--gold); line-height: 0.5; font-family: 'Playfair Display', serif; opacity: 0.4; margin-bottom: 20px; }
-  .testimonial-text { font-size: 18px; font-style: italic; color: var(--text); line-height: 1.8; margin-bottom: 20px; }
-  .testimonial-author { font-size: 13px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+    /* ── NAV ── */
+    nav {
+      background: var(--maroon);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-brand {
+      color: var(--gold-light);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 6px; }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.92rem;
+      transition: background 0.2s;
+    }
+    .nav-links a:hover { background: rgba(255,255,255,0.15); color: var(--white); }
 
-  /* LOCATION */
-  .location-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-  .location-info h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--dark); margin-bottom: 20px; }
-  .info-row { display: flex; gap: 14px; margin-bottom: 18px; align-items: flex-start; }
-  .info-icon { font-size: 18px; margin-top: 2px; flex-shrink: 0; }
-  .info-text { font-size: 14px; color: var(--muted); line-height: 1.6; }
-  .info-text strong { color: var(--dark); display: block; margin-bottom: 2px; }
-  .map-placeholder {
-    background: var(--white); border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 4px; height: 320px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
-  }
-  .map-placeholder p { color: var(--muted); font-size: 14px; text-align: center; padding: 0 20px; }
-  .map-btn {
-    background: var(--gold); color: var(--dark);
-    padding: 11px 28px; border-radius: 2px;
-    font-size: 13px; font-weight: 700; text-decoration: none; letter-spacing: 1px;
-    text-transform: uppercase; cursor: pointer; border: none; transition: background 0.2s;
-  }
-  .map-btn:hover { background: var(--gold-light); }
-  .call-cta-wrap { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
-  .call-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 11px 22px; border-radius: 2px;
-    font-size: 13px; font-weight: 700; text-decoration: none; letter-spacing: 1px;
-    text-transform: uppercase; transition: transform 0.2s;
-  }
-  .call-btn:hover { transform: translateY(-1px); }
-  .call-btn-phone { background: var(--gold); color: var(--dark); }
-  .call-btn-wa { background: #25D366; color: #fff; }
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 60%, #A0280A 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 72px 20px 64px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.2);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+    .hero-hindi {
+      color: var(--gold-light);
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+      opacity: 0.9;
+    }
+    .hero-desc {
+      max-width: 600px;
+      margin: 0 auto 32px;
+      opacity: 0.88;
+      font-size: 1.05rem;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--maroon-dark);
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .hero-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
 
-  /* FOOTER */
-  footer {
-    background: var(--dark); border-top: 2px solid var(--gold);
-    text-align: center; padding: 50px 30px;
-  }
-  footer h2 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 28px; margin-bottom: 8px; }
-  .footer-hindi { font-family: 'Noto Serif Devanagari', serif; color: var(--gold-light); font-size: 16px; opacity: 0.7; margin-bottom: 16px; }
-  footer p { color: rgba(255,255,255,0.5); font-size: 13px; margin-bottom: 4px; }
-  .footer-contact { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 20px 0; }
-  .footer-contact a { color: var(--gold-light); font-size: 14px; font-weight: 700; text-decoration: none; }
-  .footer-contact a:hover { color: var(--gold); }
-  .footer-tagline { color: rgba(255,255,255,0.25); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-top: 24px; }
+    /* ── STATS ── */
+    .stats {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      padding: 0;
+    }
+    .stat {
+      padding: 28px 16px;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--maroon);
+      line-height: 1;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--text-light); margin-top: 4px; }
 
-  @media (max-width: 680px) {
-    nav { padding: 14px 20px; }
-    .nav-links { display: none; }
-    .nav-phone { font-size: 12px; }
-    .stats-strip { gap: 24px; padding: 20px; }
-    section { padding: 50px 20px; }
-    .location-wrap { grid-template-columns: 1fr; }
-    .why-wrapper { padding: 50px 20px; }
-    .contact-strip { gap: 20px; padding: 16px 20px; }
-    .float-btn span:not(.float-icon) { display: none; }
-    .float-btn { padding: 12px 14px; }
-  }
-</style>
+    /* ── CONTACT ROW ── */
+    .contact-row {
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-row-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 28px;
+      text-decoration: none;
+      color: var(--text);
+      border-right: 1px solid var(--border);
+      font-size: 0.95rem;
+      transition: background 0.15s;
+    }
+    .contact-item:last-child { border-right: none; }
+    .contact-item:hover { background: rgba(139,26,26,0.05); }
+    .contact-item .icon { font-size: 1.3rem; }
+    .contact-item .label { font-size: 0.75rem; color: var(--text-light); display: block; }
+    .contact-item .value { font-weight: 600; color: var(--maroon); }
+
+    /* ── SECTION WRAPPER ── */
+    section { padding: 64px 20px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      color: var(--maroon);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 40px;
+    }
+
+    /* ── SERVICE CATEGORIES ── */
+    .services { background: var(--cream); }
+    .service-category { margin-bottom: 48px; }
+    .category-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--maroon);
+      padding: 10px 16px;
+      background: rgba(139,26,26,0.06);
+      border-left: 4px solid var(--maroon);
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 20px;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 18px;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+    .service-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .service-card .s-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .service-card h3 { font-size: 0.97rem; font-weight: 700; color: var(--maroon); margin-bottom: 6px; }
+    .service-card p { font-size: 0.83rem; color: var(--text-light); line-height: 1.5; }
+
+    /* ── WHY US ── */
+    .why { background: var(--white); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .why-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .why-card .w-icon { font-size: 2rem; margin-bottom: 12px; }
+    .why-card h4 { font-weight: 700; color: var(--maroon); margin-bottom: 8px; }
+    .why-card p { font-size: 0.88rem; color: var(--text-light); }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial {
+      background: linear-gradient(135deg, var(--maroon-dark), var(--maroon));
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .testimonial .quote-mark { font-size: 3rem; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+    .testimonial p { font-size: 1.05rem; opacity: 0.92; margin-bottom: 16px; font-style: italic; }
+    .testimonial cite { font-size: 0.85rem; color: var(--gold-light); font-style: normal; }
+
+    /* ── LOCATION ── */
+    .location { background: var(--cream); }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .location-details { display: flex; flex-direction: column; gap: 20px; }
+    .loc-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .loc-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .loc-text strong { display: block; font-weight: 700; color: var(--maroon); margin-bottom: 2px; }
+    .loc-text span { font-size: 0.92rem; color: var(--text-light); }
+    .map-placeholder {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .map-placeholder iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+    .btn-primary {
+      background: var(--maroon);
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--maroon-dark); }
+    .btn-secondary {
+      background: var(--gold);
+      color: var(--maroon-dark);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: var(--gold-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--maroon-dark);
+      color: rgba(255,255,255,0.8);
+      text-align: center;
+      padding: 36px 20px;
+    }
+    footer .footer-brand {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    footer .footer-hindi { color: var(--gold); font-size: 0.9rem; margin-bottom: 16px; }
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin-bottom: 16px;
+    }
+    footer .footer-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.9rem; }
+    footer .footer-links a:hover { color: var(--gold-light); }
+    footer .footer-copy { font-size: 0.78rem; opacity: 0.55; margin-top: 8px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: none; }
+      .stat:nth-child(3) { border-top: 1px solid var(--border); }
+      .stat:nth-child(4) { border-top: 1px solid var(--border); }
+      .contact-row-inner { flex-direction: column; }
+      .contact-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .location-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 2px; }
+      .nav-links a { padding: 6px 10px; font-size: 0.85rem; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .hero { padding: 52px 16px 44px; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- FLOATING CONTACT BUTTONS -->
-<div class="float-bar">
-  <a class="float-btn float-wa" href="https://wa.me/917467005157" target="_blank">
-    <span class="float-icon">💬</span><span>WhatsApp Us</span>
-  </a>
-  <a class="float-btn float-call" href="tel:+917467005157">
-    <span class="float-icon">📞</span><span>Call Now</span>
-  </a>
-</div>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">Jain & Sons</div>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#location">Location</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="nav-phone">📞 7467005157</div>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-badge">Est. 1989 &bull; Agra's Most Trusted</div>
-  <h1>Jain <span>&</span> Sons</h1>
-  <div class="hero-hindi">जैन एंड सन्स — दीवानी कचहरी, आगरा</div>
-  <div class="hero-divider"></div>
-  <p class="hero-tagline">Your trusted legal documentation partner for over 35 years. Stamp papers, affidavits, property registry, LIC, Tehsil work & much more — all under one roof.</p>
-  <div class="hero-btns">
-    <button class="hero-cta hero-cta-gold" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Our Services</button>
-    <a class="hero-cta hero-cta-wa" href="https://wa.me/917467005157" target="_blank">💬 WhatsApp Now</a>
-  </div>
-</div>
-
-<!-- STATS STRIP -->
-<div class="stats-strip">
-  <div class="stat">
-    <div class="stat-number">35+</div>
-    <div class="stat-label">Years of Service</div>
-  </div>
-  <div class="stat">
-    <div class="stat-number">500+</div>
-    <div class="stat-label">Customers Daily</div>
-  </div>
-  <div class="stat">
-    <div class="stat-number">1989</div>
-    <div class="stat-label">Established</div>
-  </div>
-  <div class="stat">
-    <div class="stat-number">#1</div>
-    <div class="stat-label">In Agra Diwani</div>
-  </div>
-</div>
-
-<!-- CONTACT STRIP -->
-<div class="contact-strip">
-  <div class="contact-item">
-    <span>📞</span>
-    <div>
-      <small>Call Us</small>
-      <a href="tel:+917467005157">+91 74670 05157</a>
-    </div>
-  </div>
-  <div class="contact-item">
-    <span>💬</span>
-    <div>
-      <small>WhatsApp</small>
-      <a href="https://wa.me/917467005157" target="_blank">+91 74670 05157</a>
-    </div>
-  </div>
-  <div class="contact-item">
-    <span>📍</span>
-    <div>
-      <small>Location</small>
-      <a href="https://maps.google.com/?q=Diwani+Kachehri+Agra" target="_blank">Diwani Gate No. 3, Agra</a>
-    </div>
-  </div>
-</div>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="section-label">What We Offer</div>
-  <h2 class="section-title">Our Complete Services</h2>
-  <div class="section-line"></div>
-
-  <!-- DIWANI / LEGAL -->
-  <div class="cat-heading">⚖️ Diwani & Legal Court Work</div>
-  <div class="services-grid">
-    <div class="service-card">
-      <span class="service-icon">📜</span>
-      <h3>Stamp Papers</h3>
-      <p>All denominations of judicial and non-judicial stamp papers for legal and official use.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">✍️</span>
-      <h3>Affidavits</h3>
-      <p>Drafting and notarisation of affidavits for personal, legal, and government requirements.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🤝</span>
-      <h3>Agreements</h3>
-      <p>Rent, sale, partnership, and all types of legal contracts drafted accurately.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">💳</span>
-      <h3>E-Challan</h3>
-      <p>Fast e-challan generation for court fees and government payments.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🏛️</span>
-      <h3>Birth Certificate</h3>
-      <p>Application and processing assistance for birth certificates and civil records.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🖥️</span>
-      <h3>E-Tender</h3>
-      <p>Complete guidance and submission for government e-tender procurement.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">📋</span>
-      <h3>Other Diwani Work</h3>
-      <p>Power of attorney, succession certificates, legal notices, and all civil documentation.</p>
-    </div>
+  <!-- TOP BAR -->
+  <div class="topbar" role="banner">
+    <a href="https://wa.me/917467005157" aria-label="WhatsApp Jain and Sons">💬 WhatsApp Us</a>
+    <a href="tel:+917467005157" aria-label="Call Jain and Sons">📞 Call Now: +91 74670 05157</a>
   </div>
 
-  <!-- PROPERTY -->
-  <div class="cat-heading">🏠 Property & Registry</div>
-  <div class="services-grid">
-    <div class="service-card red-top">
-      <span class="service-icon">🏘️</span>
-      <h3>Property Registry</h3>
-      <p>Complete assistance with property sale/purchase registry, stamp duty, and documentation at the registrar office.</p>
-    </div>
-    <div class="service-card red-top">
-      <span class="service-icon">📑</span>
-      <h3>Sale Deed</h3>
-      <p>Drafting and registration of sale deeds for residential, commercial, and agricultural properties.</p>
-    </div>
-    <div class="service-card red-top">
-      <span class="service-icon">🔑</span>
-      <h3>Gift Deed / Will</h3>
-      <p>Preparation and registration of gift deeds, wills, and property transfer documents.</p>
-    </div>
-    <div class="service-card red-top">
-      <span class="service-icon">📐</span>
-      <h3>Lease Deed</h3>
-      <p>Long-term lease agreements and lease deed registration with proper stamp duty.</p>
-    </div>
-  </div>
-
-  <!-- TEHSIL -->
-  <div class="cat-heading">🏢 Tehsil Related Work</div>
-  <div class="services-grid">
-    <div class="service-card green-top">
-      <span class="service-icon">📄</span>
-      <h3>Khasra / Khatauni</h3>
-      <p>Obtaining land records, Khasra, Khatauni (B-1), and other revenue documents from Tehsil.</p>
-    </div>
-    <div class="service-card green-top">
-      <span class="service-icon">🌾</span>
-      <h3>Domicile Certificate</h3>
-      <p>Applying and obtaining domicile / niwas praman patra from Tehsil office.</p>
-    </div>
-    <div class="service-card green-top">
-      <span class="service-icon">📊</span>
-      <h3>Income Certificate</h3>
-      <p>Aay Praman Patra (income certificate) for scholarships, government schemes, and legal use.</p>
-    </div>
-    <div class="service-card green-top">
-      <span class="service-icon">🏷️</span>
-      <h3>Caste Certificate</h3>
-      <p>Jati Praman Patra (SC/ST/OBC) — application and follow-up through Tehsil.</p>
-    </div>
-    <div class="service-card green-top">
-      <span class="service-icon">🗂️</span>
-      <h3>Mutation (Dakhil Kharij)</h3>
-      <p>Property mutation application and processing at Tehsil for name transfer in land records.</p>
-    </div>
-    <div class="service-card green-top">
-      <span class="service-icon">📝</span>
-      <h3>All Tehsil Documents</h3>
-      <p>Any certificate, application, or document required from the Tehsil office — we handle it all.</p>
-    </div>
-  </div>
-
-  <!-- LIC -->
-  <div class="cat-heading">🛡️ LIC Related Documents</div>
-  <div class="services-grid">
-    <div class="service-card blue-top">
-      <span class="service-icon">📃</span>
-      <h3>LIC Bond</h3>
-      <p>Assistance with LIC bond issuance, duplicate bond, and related documentation.</p>
-    </div>
-    <div class="service-card blue-top">
-      <span class="service-icon">💼</span>
-      <h3>Policy Documents</h3>
-      <p>Help with LIC policy papers, nominations, and premium payment documentation.</p>
-    </div>
-    <div class="service-card blue-top">
-      <span class="service-icon">🧾</span>
-      <h3>Claim Forms</h3>
-      <p>LIC maturity, death claim, and surrender value form filling and submission assistance.</p>
-    </div>
-    <div class="service-card blue-top">
-      <span class="service-icon">🔄</span>
-      <h3>Policy Revival / Transfer</h3>
-      <p>Guidance on revival of lapsed policies and policy transfer/assignment documentation.</p>
-    </div>
-  </div>
-
-  <!-- TORRENT POWER -->
-  <div class="cat-heading">⚡ Torrent Power — Electricity Services</div>
-  <div class="services-grid">
-    <div class="service-card">
-      <span class="service-icon">🔌</span>
-      <h3>New Meter Connection</h3>
-      <p>Application and processing for new Torrent Power electricity meter connection.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">📈</span>
-      <h3>Load Increase</h3>
-      <p>Apply to increase sanctioned wattage/load on your existing Torrent Power meter.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">📉</span>
-      <h3>Load Decrease</h3>
-      <p>Apply to decrease sanctioned load on your existing meter to reduce electricity demand charges.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🔧</span>
-      <h3>Name Change / Transfer</h3>
-      <p>Meter name change, ownership transfer, and connection-related documentation for Torrent Power.</p>
-    </div>
-  </div>
-
-</section>
-
-<!-- WHY US -->
-<div class="why-wrapper" id="about">
-  <div class="why-inner">
-    <div class="section-label" style="color:var(--gold)">Why Choose Us</div>
-    <h2 class="section-title">Agra's Most Trusted Name in Legal Documentation</h2>
-    <div class="section-line"></div>
-    <div class="why-grid">
-      <div class="why-item">
-        <div class="why-icon-wrap">🏅</div>
-        <h4>35 Years of Trust</h4>
-        <p>Serving the people of Agra since 1989 with honesty and dedication.</p>
+  <!-- NAVIGATION -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#">Jain &amp; Sons</a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Contact</a>
       </div>
-      <div class="why-item">
-        <div class="why-icon-wrap">⚡</div>
-        <h4>Fast & Accurate</h4>
-        <p>We handle over 500 customers daily with speed and precision.</p>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" role="main">
+    <div class="hero-badge">Est. 1989 • Agra's Most Trusted</div>
+    <h1>Jain &amp; Sons</h1>
+    <p class="hero-hindi">जैन एंड सन्स — दीवानी कचहरी, आगरा</p>
+    <p class="hero-desc">
+      Your trusted legal documentation partner for over 35 years. Stamp papers, affidavits,
+      property registry, LIC, Tehsil work &amp; much more — all under one roof.
+    </p>
+    <a href="https://wa.me/917467005157" class="hero-cta" aria-label="WhatsApp Jain and Sons for legal documentation">
+      💬 WhatsApp Now
+    </a>
+  </header>
+
+  <!-- STATS -->
+  <div class="stats" aria-label="Business highlights">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-num">35+</div>
+        <div class="stat-label">Years of Service</div>
       </div>
-      <div class="why-item">
-        <div class="why-icon-wrap">📍</div>
-        <h4>Prime Location</h4>
-        <p>Located right at Diwani Gate No. 3 — steps from the court complex.</p>
+      <div class="stat">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Customers Daily</div>
       </div>
-      <div class="why-item">
-        <div class="why-icon-wrap">🔒</div>
-        <h4>Confidential</h4>
-        <p>All your documents and personal details handled with complete privacy.</p>
+      <div class="stat">
+        <div class="stat-num">1989</div>
+        <div class="stat-label">Established</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">#1</div>
+        <div class="stat-label">In Agra Diwani</div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- TESTIMONIAL -->
-<div class="testimonial-wrap">
-  <div class="testimonial-inner">
-    <div class="quote-mark">"</div>
-    <p class="testimonial-text">Jain & Sons has been our family's go-to place for all legal documentation for over two decades. Their knowledge, speed, and honesty is unmatched anywhere in Agra's court area.</p>
-    <div class="testimonial-author">— A loyal customer, Agra</div>
+  <!-- CONTACT ROW -->
+  <div class="contact-row" id="contact" aria-label="Contact information">
+    <div class="contact-row-inner">
+      <a href="tel:+917467005157" class="contact-item" aria-label="Call us">
+        <span class="icon">📞</span>
+        <span>
+          <span class="label">Call Us</span>
+          <span class="value">+91 74670 05157</span>
+        </span>
+      </a>
+      <a href="https://wa.me/917467005157" class="contact-item" aria-label="WhatsApp us">
+        <span class="icon">💬</span>
+        <span>
+          <span class="label">WhatsApp</span>
+          <span class="value">+91 74670 05157</span>
+        </span>
+      </a>
+      <a href="https://maps.google.com/?q=Diwani+Kachehri+Gate+3+Agra" class="contact-item" target="_blank" rel="noopener" aria-label="Get directions">
+        <span class="icon">📍</span>
+        <span>
+          <span class="label">Location</span>
+          <span class="value">Diwani Gate No. 3, Agra</span>
+        </span>
+      </a>
+    </div>
   </div>
-</div>
 
-<!-- LOCATION -->
-<section id="location">
-  <div class="section-label">Find Us</div>
-  <h2 class="section-title">Visit Our Shop</h2>
-  <div class="section-line"></div>
-  <div class="location-wrap">
-    <div class="location-info">
-      <h3>Jain & Sons — Legal Documentation Centre</h3>
-      <div class="info-row">
-        <span class="info-icon">📍</span>
-        <div class="info-text">
-          <strong>Address</strong>
-          Shop No. 3, In Front of Diwani Gate No. 3,<br>Diwani Kachehri, Agra, Uttar Pradesh
+  <!-- SERVICES -->
+  <section class="services" id="services" aria-labelledby="services-heading">
+    <div class="section-inner">
+      <p class="section-label">What We Offer</p>
+      <h2 class="section-title" id="services-heading">Our Complete Services</h2>
+
+      <!-- Diwani -->
+      <div class="service-category">
+        <div class="category-heading">⚖️ Diwani &amp; Legal Court Work</div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="s-icon">📜</div>
+            <h3>Stamp Papers</h3>
+            <p>All denominations of judicial and non-judicial stamp papers for legal and official use.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">✍️</div>
+            <h3>Affidavits</h3>
+            <p>Drafting and notarisation of affidavits for personal, legal, and government requirements.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">🤝</div>
+            <h3>Agreements</h3>
+            <p>Rent, sale, partnership, and all types of legal contracts drafted accurately.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">💳</div>
+            <h3>E-Challan</h3>
+            <p>Fast e-challan generation for court fees and government payments.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">🏛️</div>
+            <h3>Birth Certificate</h3>
+            <p>Application and processing assistance for birth certificates and civil records.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">🖥️</div>
+            <h3>E-Tender</h3>
+            <p>Complete guidance and submission for government e-tender procurement.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">📋</div>
+            <h3>Other Diwani Work</h3>
+            <p>Power of attorney, succession certificates, legal notices, and all civil documentation.</p>
+          </article>
         </div>
       </div>
-      <div class="info-row">
-        <span class="info-icon">🕘</span>
-        <div class="info-text">
-          <strong>Working Hours</strong>
-          Monday – Saturday: 9:00 AM – 6:00 PM<br>Sunday: As per court schedule
-        </div>
-      </div>
-      <div class="info-row">
-        <span class="service-icon">⚖️</span>
-        <div class="info-text">
-          <strong>Specialisation</strong>
-          Diwani, Tehsil, Property, LIC, Torrent Power & all legal documentation
-        </div>
-      </div>
-      <div class="info-row">
-        <span class="info-icon">🏛️</span>
-        <div class="info-text">
-          <strong>Landmark</strong>
-          Directly in front of Diwani Gate No. 3 — easy to find
-        </div>
-      </div>
-      <div class="call-cta-wrap">
-        <a class="call-btn call-btn-phone" href="tel:+917467005157">📞 +91 74670 05157</a>
-        <a class="call-btn call-btn-wa" href="https://wa.me/917467005157" target="_blank">💬 WhatsApp</a>
-      </div>
-    </div>
-    <div>
-      <div class="map-placeholder">
-        <span style="font-size:40px">🗺️</span>
-        <p>Shop No. 3, Diwani Gate No. 3,<br>Diwani Kachehri, Agra, U.P.</p>
-        <button class="map-btn" onclick="window.open('https://maps.google.com/?q=Diwani+Kachehri+Agra+Uttar+Pradesh','_blank')">Open in Google Maps</button>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- FOOTER -->
-<footer id="contact">
-  <h2>Jain & Sons</h2>
-  <div class="footer-hindi">जैन एंड सन्स — आगरा का भरोसेमंद नाम</div>
-  <p>Shop No. 3, Diwani Gate No. 3, Diwani Kachehri, Agra, Uttar Pradesh</p>
-  <div class="footer-contact">
-    <a href="tel:+917467005157">📞 +91 74670 05157</a>
-    <a href="https://wa.me/917467005157" target="_blank">💬 WhatsApp: +91 74670 05157</a>
-  </div>
-  <p style="color:rgba(255,255,255,0.35); font-size:12px;">Serving Agra with pride since 1989</p>
-  <div class="footer-tagline">Trusted &bull; Experienced &bull; Reliable</div>
-</footer>
+      <!-- Property -->
+      <div class="service-category">
+        <div class="category-heading">🏠 Property &amp; Registry</div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="s-icon">🏘️</div>
+            <h3>Property Registry</h3>
+            <p>Complete assistance with property sale/purchase registry, stamp duty, and documentation at the registrar office.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">📑</div>
+            <h3>Sale Deed</h3>
+            <p>Drafting and registration of sale deeds for residential, commercial, and agricultural properties.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">🔑</div>
+            <h3>Gift Deed / Will</h3>
+            <p>Preparation and registration of gift deeds, wills, and property transfer documents.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">📐</div>
+            <h3>Lease Deed</h3>
+            <p>Long-term lease agreements and lease deed registration with proper stamp duty.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Tehsil -->
+      <div class="service-category">
+        <div class="category-heading">🏢 Tehsil Related Work</div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="s-icon">📄</div>
+            <h3>Khasra / Khatauni</h3>
+            <p>Obtaining land records, Khasra, Khatauni (B-1), and other revenue documents from Tehsil.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">🌾</div>
+            <h3>Domicile Certificate</h3>
+            <p>Applying and obtaining domicile / niwas praman patra from Tehsil office.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">📊</div>
+            <h3>Income Certificate</h3>
+            <p>Aay Praman Patra (income certificate) for scholarships, government schemes, and legal use.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">🏷️</div>
+            <h3>Caste Certificate</h3>
+            <p>Jati Praman Patra (SC/ST/OBC) — application and follow-up through Tehsil.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">🗂️</div>
+            <h3>Mutation (Dakhil Kharij)</h3>
+            <p>Property mutation application and processing at Tehsil for name transfer in land records.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">📝</div>
+            <h3>All Tehsil Documents</h3>
+            <p>Any certificate, application, or document required from the Tehsil office — we handle it all.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- LIC -->
+      <div class="service-category">
+        <div class="category-heading">🛡️ LIC Related Documents</div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="s-icon">📃</div>
+            <h3>LIC Bond</h3>
+            <p>Assistance with LIC bond issuance, duplicate bond, and related documentation.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">💼</div>
+            <h3>Policy Documents</h3>
+            <p>Help with LIC policy papers, nominations, and premium payment documentation.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">🧾</div>
+            <h3>Claim Forms</h3>
+            <p>LIC maturity, death claim, and surrender value form filling and submission assistance.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">🔄</div>
+            <h3>Policy Revival / Transfer</h3>
+            <p>Guidance on revival of lapsed policies and policy transfer/assignment documentation.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Torrent Power -->
+      <div class="service-category">
+        <div class="category-heading">⚡ Torrent Power — Electricity Services</div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="s-icon">🔌</div>
+            <h3>New Meter Connection</h3>
+            <p>Application and processing for new Torrent Power electricity meter connection.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">📈</div>
+            <h3>Load Increase</h3>
+            <p>Apply to increase sanctioned wattage/load on your existing Torrent Power meter.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">📉</div>
+            <h3>Load Decrease</h3>
+            <p>Apply to decrease sanctioned load on your existing meter to reduce electricity demand charges.</p>
+          </article>
+          <article class="service-card">
+            <div class="s-icon">🔧</div>
+            <h3>Name Change / Transfer</h3>
+            <p>Meter name change, ownership transfer, and connection-related documentation for Torrent Power.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why" id="about" aria-labelledby="about-heading">
+    <div class="section-inner">
+      <p class="section-label">Why Choose Us</p>
+      <h2 class="section-title" id="about-heading">Agra's Most Trusted Name in Legal Documentation</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="w-icon">🏅</div>
+          <h4>35 Years of Trust</h4>
+          <p>Serving the people of Agra since 1989 with honesty and dedication.</p>
+        </div>
+        <div class="why-card">
+          <div class="w-icon">⚡</div>
+          <h4>Fast &amp; Accurate</h4>
+          <p>We handle over 500 customers daily with speed and precision.</p>
+        </div>
+        <div class="why-card">
+          <div class="w-icon">📍</div>
+          <h4>Prime Location</h4>
+          <p>Located right at Diwani Gate No. 3 — steps from the court complex.</p>
+        </div>
+        <div class="why-card">
+          <div class="w-icon">🔒</div>
+          <h4>Confidential</h4>
+          <p>All your documents and personal details handled with complete privacy.</p>
+        </div>
+      </div>
+
+      <div class="testimonial" aria-label="Customer testimonial">
+        <div class="quote-mark">"</div>
+        <p>Jain &amp; Sons has been our family's go-to place for all legal documentation for over two decades. Their knowledge, speed, and honesty is unmatched anywhere in Agra's court area.</p>
+        <cite>— A loyal customer, Agra</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="location" id="location" aria-labelledby="location-heading">
+    <div class="section-inner">
+      <p class="section-label">Find Us</p>
+      <h2 class="section-title" id="location-heading">Visit Our Shop</h2>
+
+      <div class="location-grid">
+        <div class="location-details">
+          <h3 style="font-size:1.15rem;font-weight:700;color:var(--maroon);margin-bottom:16px;">
+            Jain &amp; Sons — Legal Documentation Centre
+          </h3>
+
+          <div class="loc-item">
+            <span class="loc-icon">📍</span>
+            <div class="loc-text">
+              <strong>Address</strong>
+              <span>Shop No. 3, In Front of Diwani Gate No. 3,<br>Diwani Kachehri, Agra, Uttar Pradesh</span>
+            </div>
+          </div>
+
+          <div class="loc-item">
+            <span class="loc-icon">🕘</span>
+            <div class="loc-text">
+              <strong>Working Hours</strong>
+              <span>Monday – Saturday: 9:00 AM – 6:00 PM<br>Sunday: As per court schedule</span>
+            </div>
+          </div>
+
+          <div class="loc-item">
+            <span class="loc-icon">⚖️</span>
+            <div class="loc-text">
+              <strong>Specialisation</strong>
+              <span>Diwani, Tehsil, Property, LIC, Torrent Power &amp; all legal documentation</span>
+            </div>
+          </div>
+
+          <div class="loc-item">
+            <span class="loc-icon">🏛️</span>
+            <div class="loc-text">
+              <strong>Landmark</strong>
+              <span>Directly in front of Diwani Gate No. 3 — easy to find</span>
+            </div>
+          </div>
+
+          <div class="cta-buttons">
+            <a href="tel:+917467005157" class="btn-primary">📞 +91 74670 05157</a>
+            <a href="https://wa.me/917467005157" class="btn-secondary">💬 WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="map-placeholder" aria-label="Map showing Jain and Sons location at Diwani Kachehri Agra">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3549.2!2d78.0081!3d27.1767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDEwJzM2LjEiTiA3OMKwMDAnMjkuMiJF!5e0!3m2!1sen!2sin!4v1!5m2!1sen!2sin"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Jain and Sons location map - Diwani Kachehri Gate 3 Agra">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="footer-brand">Jain &amp; Sons</div>
+    <div class="footer-hindi">जैन एंड सन्स — आगरा का भरोसेमंद नाम</div>
+    <p style="font-size:0.88rem;margin-bottom:12px;opacity:0.8;">
+      Shop No. 3, Diwani Gate No. 3, Diwani Kachehri, Agra, Uttar Pradesh
+    </p>
+    <div class="footer-links">
+      <a href="tel:+917467005157">📞 +91 74670 05157</a>
+      <a href="https://wa.me/917467005157">💬 WhatsApp</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#location">Location</a>
+    </div>
+    <p style="font-size:0.88rem;color:rgba(255,255,255,0.7);">Serving Agra with pride since 1989 · Trusted · Experienced · Reliable</p>
+    <p class="footer-copy">&copy; 2025 Jain &amp; Sons, Agra. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
